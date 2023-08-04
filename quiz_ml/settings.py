@@ -29,7 +29,7 @@ SECRET_KEY = 'django-insecure-7#@+y@@m079kac+hm@((0c22a=8(y=8c95)(qw1$m$by$7ha+#
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['btraining.onrender.com']
 
 AUTH_USER_MODEL = "api_quizz.User"
 
