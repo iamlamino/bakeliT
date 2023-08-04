@@ -28,6 +28,7 @@ def rtl(request):
 def notification(request):
   return render(request, 'pages/notifications.html', { 'segment': 'notification' })
 
+@login_required
 def profile(request):
   return render(request, 'pages/profile.html', { 'segment': 'profile' })
 

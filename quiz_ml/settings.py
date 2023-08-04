@@ -13,7 +13,7 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 from dotenv import load_dotenv
 from pathlib import Path
 import os
-
+import dj_database_url
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -67,6 +67,8 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 
+    'whitenoise.middleware.WhiteNoiseMiddleware',
+
     'corsheaders.middleware.CorsMiddleware',
 ]
 
@@ -94,7 +96,7 @@ WSGI_APPLICATION = 'quiz_ml.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
-DATABASES = {
+"""DATABASES = {
     # 'default': {
     #    'ENGINE': 'django.db.backends.sqlite3',
     #    'NAME': BASE_DIR / 'db.sqlite3',
@@ -107,6 +109,14 @@ DATABASES = {
         'HOST': os.environ['HOST'],
         'PORT': os.environ['PORT'],
     }
+}"""
+
+DATABASES = {
+    'default': dj_database_url.config(
+        # Feel free to alter this value to suit your needs.
+        default='postgres://lamino:TdB2VxRRXmMQKvIyOfilAo6Rymr5boyf@dpg-cj6f4m97120s73acita0-a.oregon-postgres.render.com/bakelitraining',
+        conn_max_age=600
+    )
 }
 
 
